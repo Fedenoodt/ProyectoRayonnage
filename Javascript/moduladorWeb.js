@@ -1,5 +1,23 @@
-//const inicio = localStorage.getItem('index');
-//refresh(inicio)
+/////////////////////////////////////////////////////////////////////    ATENCION    //////////////////////////////////////////////////////////////////////
+
+// En este codigo hay un par de pautas claras. Una es informar la utilidad del modulo, la segunda es informar que todas las funciones estan comentadas con 
+// un preambulo informativo de la tarea a acatar en la misma. Y la tercera es informar que existen diversos separadores, para marcar distintas secciones.
+// Estas son las referencias encerradas en "comillas", y un [...] que significa que la secuencia se repite...
+
+// "[...]/////[...]": Barra que indica un segmento informativo.
+// "//====[...]====//": Divisor de secciones del programa
+// "//----[...]----//": Sencillo divisor estetico dentro del cuerpo.
+
+// moduladorWeb tiene la tarea de construir una web, partiendo desde la base de que el diseñador tiene que tomar los enlaces con la funcion buscadora 
+// seeker("nombreQueTieneLaWeb"), y subir ese mismo nombre a un localStorage, con cada una de las paginas.
+// incluyendo asi este modulo "automatico", una funcion especial, a la que se le pide al mismo diseñador, que la web de cabezera, se nombre como "index".
+// Para no perder el tiempo con las dudas de cual es de estas webs.
+
+
+////////////////////////////////////////////////////////////////    PROYECTO RAYONNAGE    /////////////////////////////////////////////////////////////////
+
+//=======================================================    funciones de impresion en consola    =======================================================//
+//// Estas funciones son para el uso especial en el que en la proyecion desde la consola se produce algun evento, avise de la situacion actual. ////
 
 function noWeb () {
     // noWeb solo es un aviso por consola, de que no se marco ningun indice.
@@ -11,7 +29,11 @@ function fatalError () {
     console.log("Sorry. We can't set the local web. Try again later.");
 }
 
+//===========================================================    funciones de construccion    ===========================================================//
+//// Estas funciones son las que se encargan de modelar la estructura que va a conformar adecuadamente la pagina, segun las instrucciones. ////
+
 function refresh (parameter) {
+    // refresh se encarga detras de la produccion de la imagen, de agarrar el nombre que finalmente correspnde, y suplantar el cuerpo por la pagina actual.
     let block = null;
     block = document.createElement('div');
     block.innerHTML = ''
@@ -43,6 +65,9 @@ function builder () {
     console.log(`Web's pictures builded.`)
 }
 
+//==========================================================    funciones de investigacion    ===========================================================//
+//// Estas son las primeras funciones del programa, que se encargan de tomar los parametros, y dirigir esta informacion en la direccion correcta. ////
+
 function seeker (parameter) {
     // seeker toma a nexID para "buscar" el ID de la pagina.
     let nexID = localStorage.getItem('nexID').split(',');
@@ -65,8 +90,9 @@ function indexer () {
     return index
 }
 
+//====================================================================    cuerpo    =====================================================================//
+//// En el cuerpo se hacen dos cosas. Se ejecutan las funciones en orden, y se hace una proyeccion en consola de el estado del programa. ////
 
-//function main (web) {
     console.log('Reading web pictures archives.')
     builder();
     console.log('Passing data from selected web ID.')
@@ -94,4 +120,3 @@ function indexer () {
     console.log('Charge complete. Script ending.')
 
     }
-
